@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import Oussama.Delivery;
+
 @Entity
 @Table(name="T_DELIVERY_MAN")
 public class delivery_man implements Serializable  {
@@ -30,7 +32,7 @@ public class delivery_man implements Serializable  {
 	private String lastname ;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="delivery_man")
-	private Set<delivery> delivery;
+	private Set<Delivery> delivery;
 	
 	
 	public delivery_man(int id, String name, String lastname) {

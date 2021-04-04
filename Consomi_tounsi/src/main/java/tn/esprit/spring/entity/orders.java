@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import Oussama.Delivery;
+
 @Entity
 @Table(name="T_Orders")
 public class orders implements Serializable {
@@ -21,7 +23,7 @@ private static final long serialVersionUID = 1L;
 	private paiments Paiments;
 	
 	@ManyToOne
-	delivery delivery;
+	Delivery delivery;
 	
 	@ManyToOne
 	customer customer;
