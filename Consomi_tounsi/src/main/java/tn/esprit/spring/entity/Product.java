@@ -78,7 +78,7 @@ public class Product implements Serializable {
 	Provider provider;
 	
 	@OneToMany (cascade = CascadeType.ALL, mappedBy="Product")
-	private Set<orders> orders;
+	private Set<tn.esprit.spring.Oussama.orders> orders;
 	
 	@ManyToOne
 	Rayon rayon;
@@ -122,13 +122,13 @@ public class Product implements Serializable {
 
 
 
-	public Set<orders> getOrders() {
+	public Set<tn.esprit.spring.Oussama.orders> getOrders() {
 		return orders;
 	}
 
 
 
-	public void setOrders(Set<orders> orders) {
+	public void setOrders(Set<tn.esprit.spring.Oussama.orders> orders) {
 		this.orders = orders;
 	}
 

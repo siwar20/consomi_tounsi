@@ -4,9 +4,6 @@ package tn.esprit.spring;
 
 //import java.util.Date;
 
-import org.junit.Test;
-//import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -22,11 +19,11 @@ import tn.esprit.spring.entity.Stocks;
 
 
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)//
 @SpringBootTest
 public class ProjetApplicationTests {
 	
-	@Autowired
+	/*@Autowired
 	stockService proRep;
 
 	@Test
@@ -48,7 +45,7 @@ public class ProjetApplicationTests {
 			proRep.updateStocks(1);
 		System.out.println(S);
 	}*/
-	@Test
+	/*@Test
 	public void deleteStocks() {
 		proRep.deleteStocks(1L);
 		
@@ -61,8 +58,9 @@ public class ProjetApplicationTests {
 			System.out.println(S);
 		}
 	}
-	
 
+
+	 */
 
 
 

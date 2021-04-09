@@ -24,7 +24,7 @@ public class paiments implements Serializable {
 	 private String client_id;
 	
 	@OneToOne(mappedBy="Paiments")
-	private orders orders;
+	private tn.esprit.spring.Oussama.orders orders;
 	
 	
 	public Long getId() {

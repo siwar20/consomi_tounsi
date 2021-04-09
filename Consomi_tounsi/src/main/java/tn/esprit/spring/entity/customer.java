@@ -27,7 +27,7 @@ public class customer implements Serializable {
 	
 	
 	@OneToMany (cascade = CascadeType.ALL, mappedBy="customer")
-	private Set<orders> orders;
+	private Set<tn.esprit.spring.Oussama.orders> orders;
 	
 	@OneToMany (cascade = CascadeType.ALL, mappedBy="customer")
 	private Set<donations> donations;

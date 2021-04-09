@@ -1,28 +1,20 @@
 package tn.esprit.spring.control;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+<<<<<<< HEAD
 import tn.esprit.spring.entity.Product;
 import tn.esprit.spring.entity.Rayon;
 import tn.esprit.spring.service.ProductService;
 import tn.esprit.spring.service.RayonService;
 
+=======
+>>>>>>> 2a486c3 (oussama)
 @Controller
 @RequestMapping("/api/rayon")
 public class RayonRestController {
-	
+	/*
 	@Autowired
 	public RayonService rayonservice;
 	
@@ -74,6 +66,8 @@ public class RayonRestController {
 		Rayon rayon = rayonservice.classifyProduct(product);
 		return new ResponseEntity<>(rayon, HttpStatus.OK);
 	}
+
+	 */
 	
 
 }
