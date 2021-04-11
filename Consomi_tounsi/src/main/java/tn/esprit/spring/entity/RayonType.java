@@ -1,6 +1,6 @@
 package tn.esprit.spring.entity;
 
-public enum Type {
+public enum RayonType {
 	Réfrigérateur, normal
 	
 	

@@ -1,7 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import tn.esprit.spring.entity.Category;
 
@@ -16,6 +16,5 @@ List<Category> retrieveAllCategory();
 	
 	Category updateCategory(Category C);
 	
-	Optional<Category> retrieveCategory(Long idCategory);
-
+	Category retrieveCategory(Long idCategory);
 }

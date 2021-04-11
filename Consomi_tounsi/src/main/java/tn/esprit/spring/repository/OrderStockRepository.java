@@ -8,5 +8,6 @@ import tn.esprit.spring.entity.OrderStock;
 public interface OrderStockRepository extends JpaRepository<OrderStock, Long> {
 
 	OrderStock findOrderStockByid(Long id);
+	
 
 }

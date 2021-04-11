@@ -1,48 +1,49 @@
-package tn.esprit.spring.service;
+package tn.esprit.spring.service.impl;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.Category;
 import tn.esprit.spring.repository.CategoryRepository;
+import tn.esprit.spring.service.CategoryService;
 
 @Service
 public class CategoryServicelmpl implements CategoryService {
 
 	
 	@Autowired
-	public CategoryRepository categpryrep;
+	public CategoryRepository categoryrep;
 	
 	@Override
 	public List<Category> retrieveAllCategory() {
-		return categpryrep.findAll();
+		return categoryrep.findAll();
 	}
 
 	@Override
 	public Category addCategory(Category C) {
 		
-		return categpryrep.save(C) ;
+		return categoryrep.save(C) ;
 	}
 
 	@Override
 	public void deleteCategory(Long id) {
-		categpryrep.deleteById(id);
+		categoryrep.deleteById(id);
 		
 	}
 
 	@Override
 	public Category updateCategory(Category C) {
 		
-		return categpryrep.save(C);
+		return categoryrep.save(C);
 	}
 
 	@Override
-	public Optional<Category> retrieveCategory(Long idCategory) {
+	public Category retrieveCategory(Long idCategory) {
 		
-		return categpryrep.findById(idCategory);
-	}
+		return categoryrep.findCategoryById(idCategory);
+	}	
 
 }

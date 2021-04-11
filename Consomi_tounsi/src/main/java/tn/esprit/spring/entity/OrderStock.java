@@ -25,7 +25,15 @@ public class OrderStock implements Serializable {
 	private Long id;
 	@Column(name="OrderStock_Name")
 	private String Name;
+	@Column(name="Order_Quantity")
+	private int Quantity;
 	
+	
+	public OrderStock(int quantity) {
+		super();
+		Quantity = quantity;
+	}
+
 	@ManyToOne
 	Stocks stocks;
 
@@ -63,12 +71,22 @@ public class OrderStock implements Serializable {
 	public void setStocks(Stocks stocks) {
 		this.stocks = stocks;
 	}
+	
+
+	public int getQuantity() {
+		return Quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+		result = prime * result + Quantity;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((stocks == null) ? 0 : stocks.hashCode());
 		return result;
@@ -88,6 +106,8 @@ public class OrderStock implements Serializable {
 				return false;
 		} else if (!Name.equals(other.Name))
 			return false;
+		if (Quantity != other.Quantity)
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -103,7 +123,7 @@ public class OrderStock implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderStock [id=" + id + ", Name=" + Name + ", stocks=" + stocks + "]";
+		return "OrderStock [id=" + id + ", Name=" + Name + ", Quantity=" + Quantity + ", stocks=" + stocks + "]";
 	}
 	
 	
