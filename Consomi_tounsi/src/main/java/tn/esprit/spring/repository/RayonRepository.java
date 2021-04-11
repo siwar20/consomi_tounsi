@@ -13,6 +13,5 @@ import tn.esprit.spring.entity.Type;
 public interface RayonRepository  extends JpaRepository<Rayon, Long> {
 	 Rayon findRayonByid(Long id);
 
-	List<Rayon> findRayonByType(Type réfrigérateur);
 
 }
