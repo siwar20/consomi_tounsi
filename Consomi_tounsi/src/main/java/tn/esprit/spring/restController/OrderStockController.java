@@ -59,7 +59,7 @@ public class OrderStockController {
     }
 
  
-    @DeleteMapping("/Stock/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteOrderStock(@PathVariable Long id) {
     	orderservice.deleteOrderStock(id);
     }

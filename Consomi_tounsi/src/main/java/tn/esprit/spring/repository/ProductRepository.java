@@ -11,13 +11,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import tn.esprit.spring.entity.Product;
+import tn.esprit.spring.entity.RayonType;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Product findProductByid(Long id);
 
 	@Query(value = "select p from Product p where p.product_name like %:q%  and " + " p.category.type like %:t%  ")
-	List<Product> findProductByProduct_nameAndProduct_type(@Param("q") String q, @Param("t") String t);
+	List<Product> findProductByProduct_nameAndProduct_type(@Param("q") String q, @Param("t") RayonType t);
 	
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.Product;
+import tn.esprit.spring.entity.RayonType;
 import tn.esprit.spring.entity.Stocks;
 import tn.esprit.spring.repository.ProductRepository;
 import tn.esprit.spring.service.ProductService;
@@ -57,8 +58,9 @@ public class ProductServicelmpl implements ProductService {
 
 	@Override
 	public List<Product> findProductByNameAndType(String q, String t) {
-
-		return Prodrep.findProductByProduct_nameAndProduct_type(q, t);
+		RayonType rayontype = t == "Réfrigérateur" ? RayonType.Réfrigérateur : RayonType.normal;
+		  
+		return Prodrep.findProductByProduct_nameAndProduct_type(q, rayontype);
 	}
 
 	@Override
