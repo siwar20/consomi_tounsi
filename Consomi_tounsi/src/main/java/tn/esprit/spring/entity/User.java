@@ -16,6 +16,14 @@ import javax.persistence.*;
 			@UniqueConstraint(columnNames = "email") 
 		})
 public class User {
+	public List<Command> getCommands() {
+		return commands;
+	}
+
+	public void setCommands(List<Command> commands) {
+		this.commands = commands;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
