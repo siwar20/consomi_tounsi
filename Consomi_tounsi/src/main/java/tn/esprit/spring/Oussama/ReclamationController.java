@@ -3,17 +3,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.mail.MailService;
+import tn.esprit.spring.pdf.PdfService;
 
+import javax.mail.MessagingException;
 import java.util.List;
 @RestController
 @RequestMapping("/reclamation")
 public class ReclamationController {
     @Autowired
     ReclamationService rm;
+    @Autowired
+    MailService mailService;
+    @Autowired
+    PdfService pdfService;
+
     //Create A new Reclamation
     @PostMapping
-    ResponseEntity<?> createNewReclamation( @RequestBody reclamation r){
+    ResponseEntity<?> createNewReclamation( @RequestBody reclamation r) throws MessagingException {
         rm.addReclamation(r);
+        mailService.sendWithAttachment(r,pdfService.toPDF(r.getId()));
         return new ResponseEntity<>(new MessageResponseModel("Reclamation Added "), HttpStatus.CREATED);
     }
     //Show All reclamation

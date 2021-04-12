@@ -32,6 +32,7 @@ public class reclamation implements Serializable {
 	@Column(name="reclamation_status")
 	private String status;
 	private String subject;
+	private String email;
 
 
 }
