@@ -1,6 +1,7 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="T_COMMAND")
 public class Command implements Serializable{
@@ -28,11 +31,12 @@ public class Command implements Serializable{
 	@GeneratedValue (strategy= GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany(mappedBy="command", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<CommandItem> items;
+	@OneToMany(mappedBy="command", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<CommandItem> items = new ArrayList<CommandItem>();
 	
 	@ManyToOne
 	@JoinColumn(name="usr_id", referencedColumnName = "id")
+	@JsonIgnore
 	private User customer;
 	
 	
@@ -40,10 +44,19 @@ public class Command implements Serializable{
 	
 	private double total;
 	
+	private boolean canceled = false;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
 	private PaymentType paymentType;
 
+	@JsonIgnore
+	public CommandItem[] getAllItems()
+	{
+		CommandItem[] a = new CommandItem[50];
+		return (CommandItem[]) new ArrayList<>(getItems()).toArray(a);
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -118,6 +131,14 @@ public class Command implements Serializable{
 	public Command() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public boolean getCanceled() {
+		return canceled;
+	}
+
+	public void setCanceled(boolean canceled) {
+		this.canceled = canceled;
 	}
 	
 }
