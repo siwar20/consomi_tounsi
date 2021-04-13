@@ -84,8 +84,8 @@ public class ProductRestController {
 	}
 
 	@GetMapping("/Product/find")
-	public ResponseEntity<List<Product>> findProductByNameAndType(@RequestParam String q, @RequestParam String t) {
-		List<Product> list = productService.findProductByNameAndType(q, t);
+	public ResponseEntity<List<Product>> findProductByNameAndType(@RequestParam String q) {
+		List<Product> list = productService.findProductByName(q);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	

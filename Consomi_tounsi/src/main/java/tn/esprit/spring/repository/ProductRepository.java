@@ -17,8 +17,8 @@ import tn.esprit.spring.entity.RayonType;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Product findProductByid(Long id);
 
-	@Query(value = "select p from Product p where p.product_name like %:q%  and " + " p.category.type like %:t%  ")
-	List<Product> findProductByProduct_nameAndProduct_type(@Param("q") String q, @Param("t") RayonType t);
+	@Query(value = "select p from Product p where p.product_name like %:q% ")
+	List<Product> findProductByProduct_name(@Param("q") String q);
 	
 	
 }

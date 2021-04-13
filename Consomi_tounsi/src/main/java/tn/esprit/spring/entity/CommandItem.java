@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="T_CMD_ITEM")
 public class CommandItem implements Serializable{
@@ -110,6 +112,7 @@ public class CommandItem implements Serializable{
 
 
 	@ManyToOne()
-	@JoinColumn(name="cmd_id", referencedColumnName = "id")  
+	@JoinColumn(name="cmd_id", referencedColumnName = "id")
+	@JsonIgnore
 	private Command command;
 }

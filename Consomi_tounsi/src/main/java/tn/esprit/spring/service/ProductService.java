@@ -4,6 +4,7 @@ import java.util.List;
 //import java.util.Optional;
 
 import tn.esprit.spring.entity.Product;
+import tn.esprit.spring.entity.RayonType;
 
 public interface ProductService {
 	
@@ -17,7 +18,7 @@ public interface ProductService {
 	
 	Product retrieveProduct(Long idProduct);
 
-	List<Product> findProductByNameAndType(String q,String t);
+	List<Product> findProductByName(String q);
 	
 	void verifierProductByDateExpiration(Product product);
 

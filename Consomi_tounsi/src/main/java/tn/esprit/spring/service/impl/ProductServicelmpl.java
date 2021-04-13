@@ -57,10 +57,10 @@ public class ProductServicelmpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findProductByNameAndType(String q, String t) {
-		RayonType rayontype = t == "Réfrigérateur" ? RayonType.Réfrigérateur : RayonType.normal;
+	public List<Product> findProductByName(String q) {
+		
 		  
-		return Prodrep.findProductByProduct_nameAndProduct_type(q, rayontype);
+		return Prodrep.findProductByProduct_name(q);
 	}
 
 	@Override
