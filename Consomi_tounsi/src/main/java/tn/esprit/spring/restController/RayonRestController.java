@@ -76,6 +76,17 @@ public class RayonRestController {
 		productService.addProduct(product);
 		return new ResponseEntity<>(rayon, HttpStatus.OK);
 	}
+	/*
+	 * @PutMapping(value = "/affecterProductToSCategorie/{idprod}/{idScat}") 
+		public void affecterProductToSCategorie(@PathVariable("idprod") int prodId, @PathVariable("idScat") long scatId) {
+			prodS.affecterProductToSCategorie(prodId, scatId);
+	 */
+	
+	@PutMapping("/ProARay/{ProId}/{RayonId}")
+    public void affecterProductARayon(@PathVariable ("ProId") Long ProId,@PathVariable("RayonId") Long RayonId ){
+  	rayonservice.affecterProductARayon(ProId, RayonId);
+    	
+    }
 	
 
 }

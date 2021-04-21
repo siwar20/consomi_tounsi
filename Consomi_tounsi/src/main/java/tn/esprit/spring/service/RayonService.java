@@ -19,5 +19,6 @@ public interface RayonService {
 
 	Rayon classifyProduct(Product product);
 
+	void affecterProductARayon(Long ProId, Long RayonId);
 
 }

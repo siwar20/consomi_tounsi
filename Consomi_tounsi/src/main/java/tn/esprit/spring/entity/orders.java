@@ -5,35 +5,57 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="T_Orders")
 public class orders implements Serializable {
 	
 private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Orders_id;
-	@Temporal(TemporalType.DATE)
-	private Date order_date;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Integer Orders_id;
+@Temporal(TemporalType.DATE)
+private Date order_date;
+public float weight;
 	
 	@OneToOne
 	private paiments Paiments;
 	
 	@ManyToOne
-	delivery delivery;
+	Delivery delivery;
 	
 	@ManyToOne
-	customer customer;
+    tn.esprit.spring.entity.customer customer;
+
+    @ManyToOne
+    tn.esprit.spring.entity.Product Product;
+
 	
-	@ManyToOne
-	Product Product;
 	
-	
-	public orders(Integer orders_id, Date birth_date) {
+    public orders() {
+		super();
+	}
+
+	public orders(Integer orders_id, Date order_date, float weight, paiments paiments, Delivery delivery,
+			tn.esprit.spring.entity.customer customer, tn.esprit.spring.entity.Product product) {
 		super();
 		Orders_id = orders_id;
-		this.order_date = birth_date;
+		this.order_date = order_date;
+		this.weight = weight;
+		Paiments = paiments;
+		this.delivery = delivery;
+		this.customer = customer;
+		Product = product;
 	}
 
 	public Integer getOrders_id() {
@@ -44,52 +66,61 @@ private static final long serialVersionUID = 1L;
 		Orders_id = orders_id;
 	}
 
-	public Date getBirth_date() {
+	public Date getOrder_date() {
 		return order_date;
 	}
 
-	public void setBirth_date(Date birth_date) {
-		this.order_date = birth_date;
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Orders_id == null) ? 0 : Orders_id.hashCode());
-		result = prime * result + ((order_date == null) ? 0 : order_date.hashCode());
-		return result;
+	public float getWeight() {
+		return weight;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		orders other = (orders) obj;
-		if (Orders_id == null) {
-			if (other.Orders_id != null)
-				return false;
-		} else if (!Orders_id.equals(other.Orders_id))
-			return false;
-		if (order_date == null) {
-			if (other.order_date != null)
-				return false;
-		} else if (!order_date.equals(other.order_date))
-			return false;
-		return true;
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+
+	public paiments getPaiments() {
+		return Paiments;
+	}
+
+	public void setPaiments(paiments paiments) {
+		Paiments = paiments;
+	}
+
+	public Delivery getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(Delivery delivery) {
+		this.delivery = delivery;
+	}
+
+	public tn.esprit.spring.entity.customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(tn.esprit.spring.entity.customer customer) {
+		this.customer = customer;
+	}
+
+	public tn.esprit.spring.entity.Product getProduct() {
+		return Product;
+	}
+
+	public void setProduct(tn.esprit.spring.entity.Product product) {
+		Product = product;
 	}
 
 	@Override
 	public String toString() {
-		return "orders [Orders_id=" + Orders_id + ", birth_date=" + order_date + "]";
+		return "orders [Orders_id=" + Orders_id + ", order_date=" + order_date + ", weight=" + weight + ", Paiments="
+				+ Paiments + ", delivery=" + delivery + ", customer=" + customer + ", Product=" + Product + "]";
 	}
-	
-	
-	
-	
+
+    
+    
 
 }

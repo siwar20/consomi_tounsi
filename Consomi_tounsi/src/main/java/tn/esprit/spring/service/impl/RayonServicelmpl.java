@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import tn.esprit.spring.entity.Product;
 import tn.esprit.spring.entity.Rayon;
 import tn.esprit.spring.entity.RayonType;
+import tn.esprit.spring.entity.Stocks;
+import tn.esprit.spring.repository.ProductRepository;
 import tn.esprit.spring.repository.RayonRepository;
 import tn.esprit.spring.service.RayonService;
 
@@ -18,6 +20,9 @@ public class RayonServicelmpl implements RayonService {
 
 	@Autowired
 	public RayonRepository rayonrepository;
+	
+	@Autowired
+	public ProductRepository prorep;
 
 	@Override
 	public List<Rayon> retrieveAllRayon() {
@@ -70,6 +75,15 @@ public class RayonServicelmpl implements RayonService {
 
 		}
 		return rayon;
+	}
+
+	@Override
+	public
+	 void affecterProductARayon(Long ProId, Long RayonId){
+		Rayon rayon = rayonrepository.findById(RayonId).get();
+		Product Pr = prorep.findById(ProId).get();
+		Pr.setRayon(rayon);
+		prorep.save(Pr);
 	}
 
 }
